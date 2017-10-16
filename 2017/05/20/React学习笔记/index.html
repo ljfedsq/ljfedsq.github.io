@@ -1,0 +1,1031 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="前端框架,React,知识点," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Zhanmin's blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.2" />
+
+
+
+
+
+
+<meta name="description" content="本文的内容是博主在学习React前端框架时在阅读官方文档教程时所积累的知识点和重点。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="React学习笔记">
+<meta property="og:url" content="http://yoursite.com/2017/05/20/React学习笔记/index.html">
+<meta property="og:site_name" content="Zhanmin's blog">
+<meta property="og:description" content="本文的内容是博主在学习React前端框架时在阅读官方文档教程时所积累的知识点和重点。">
+<meta property="og:updated_time" content="2017-10-16T07:51:32.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="React学习笔记">
+<meta name="twitter:description" content="本文的内容是博主在学习React前端框架时在阅读官方文档教程时所积累的知识点和重点。">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/05/20/React学习笔记/"/>
+
+
+  <title> React学习笔记 | Zhanmin's blog </title>
+</head>
+
+<body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Zhanmin's blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">拾金之路</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                React学习笔记
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-05-20T16:38:29+08:00" content="2017-05-20">
+              2017-05-20
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/blog/" itemprop="url" rel="index">
+                    <span itemprop="name">blog</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>本文的内容是博主在学习React前端框架时在阅读官方文档教程时所积累的知识点和重点。</p>
+<a id="more"></a>
+<h4 id="State"><a href="#State" class="headerlink" title="State"></a>State</h4><ul>
+<li><p>注意点：</p>
+<ul>
+<li><p>不能直接修改state值，而应该使用setState()方法；</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">this</span>.state.comment = <span class="string">'Hello'</span>;<span class="comment">//Wrong</span></div><div class="line"><span class="keyword">this</span>.setState(&#123;<span class="attr">comment</span>:<span class="string">'Hello'</span>&#125;);</div></pre></td></tr></table></figure>
+</li>
+<li><p>state更新可能是异步的，因此不能依赖它们的值来计算下next state;</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">this</span>.setState(&#123;      <span class="comment">//Wrong</span></div><div class="line">  counter:<span class="keyword">this</span>.state.counter + <span class="keyword">this</span>.props.increment,</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="keyword">this</span>.setState(<span class="function">(<span class="params">preState,props</span>) =&gt;</span>(&#123; <span class="comment">//Correct</span></div><div class="line">  counter:preState.counter + props.increment</div><div class="line">&#125;));</div></pre></td></tr></table></figure>
+</li>
+<li><p>state更新是被合并的,当改变其中一个state时，其他state将被合并而不会缺失。</p>
+</li>
+</ul>
+</li>
+<li><p>单向数据流动：</p>
+<ul>
+<li><p>state只能在拥有并且设置它的组件中访问，所以是局部变量或封装的变量；</p>
+</li>
+<li><p>组件可以将其state作为props传递给其子组件；</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 父组件</span></div><div class="line">&lt;FormateedDate date=&#123;<span class="keyword">this</span>.state.date&#125; /&gt;</div><div class="line"><span class="comment">// 子组件</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">FormateedDate</span>(<span class="params">props</span>)</span>&#123;</div><div class="line">  <span class="keyword">return</span> &lt;h2&gt;It is &#123;props.date.toLocalTimeString()&#125;.&lt;/h2&gt;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>识别UI的state的最小表示：</p>
+<ul>
+<li><p>通过props传入的不作为state；</p>
+</li>
+<li><p>随着时间变化，始终保持不变的不作为state；</p>
+</li>
+<li><p>可以根据组件中的其他state或props计算出来的不作为state；</p>
+<p>​</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="处理事件"><a href="#处理事件" class="headerlink" title="处理事件"></a>处理事件</h4><ul>
+<li><p>与html定义方法的区别：</p>
+<ul>
+<li><p>react事件用驼峰式命名，而html事件用小写字母命名；</p>
+</li>
+<li><p>用JSX时，将方法传递给事件处理，而不是字符串；</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;button onClick=&#123;activateLasers&#125;&gt;</div><div class="line">ACtivate Lasers</div><div class="line">&lt;<span class="regexp">/button&gt;</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>不能return false作为默认行为，而必须显示调用preventDefault.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">handleClick</span>(<span class="params">e</span>)</span>&#123;</div><div class="line">  e.preventDefault();</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'The link was clicked'</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>事件方法需要绑定到this上</p>
+<ul>
+<li><p>常规做法：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">this</span>.handleClick = <span class="keyword">this</span>.handleClick.bind(<span class="keyword">this</span>);</div><div class="line"></div><div class="line">handleClick()&#123;</div><div class="line">    <span class="keyword">this</span>.setState(<span class="function"><span class="params">prevState</span> =&gt;</span>(&#123;</div><div class="line">      <span class="attr">isToggle</span>:!prevState.isToggle</div><div class="line">    &#125;));</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>将方法作为变量赋值</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">handleClick = <span class="function"><span class="params">()</span> =&gt;</span>&#123;</div><div class="line">    <span class="keyword">this</span>.setState(<span class="function"><span class="params">prevState</span> =&gt;</span>(&#123;</div><div class="line">      <span class="attr">isToggle</span>:!prevState.isToggle</div><div class="line">    &#125;));</div><div class="line">  &#125;;</div></pre></td></tr></table></figure>
+</li>
+<li><p>带参传递</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;button onClick=&#123;(e)=&gt;this.handleClick(e)&#125;&gt;&#123;this.state.isToggle?&apos;On&apos;:&apos;OFF&apos;&#125;&lt;/button&gt;</div></pre></td></tr></table></figure>
+<p>问题：每次渲染时都会创建一个不同的回调函数，大多数情况下没有问题，但是，如果这个回调要吃传递给子组件时，就会进行额外的重新渲染。所以通常建议前两种方式。</p>
+<p>​</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="表单"><a href="#表单" class="headerlink" title="表单"></a>表单</h4><ul>
+<li><p>控制组件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">handleChange(e)&#123;</div><div class="line">  this.setState(&#123;value:e.target.value&#125;);</div><div class="line">&#125;</div><div class="line">&lt;form&gt;</div><div class="line">	&lt;label&gt;Name:</div><div class="line">    	&lt;input type=&quot;text&quot; value=&#123;this.state.value&#125; onChange=&#123;this.handleChange&#125;/&gt;</div><div class="line">    &lt;/label&gt;</div><div class="line">    &lt;input type=&quot;submit&quot; value=&quot;Submit&quot;/&gt;</div><div class="line">&lt;/form&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>textarea标签</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">handleChange(e)&#123;</div><div class="line">  this.setState(&#123;value:e.target.value&#125;);</div><div class="line">&#125;</div><div class="line">&lt;form&gt;</div><div class="line">	&lt;label&gt;Name:</div><div class="line">    	&lt;textarea value=&#123;this.state.value&#125; onChange=&#123;this.handleChange&#125;/&gt;</div><div class="line">    &lt;/label&gt;</div><div class="line">    &lt;input type=&quot;submit&quot; value=&quot;Submit&quot;/&gt;</div><div class="line">&lt;/form&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>select标签</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">this.state = &#123;selectValue: &apos;coconut&apos;&#125;;</div><div class="line"></div><div class="line">handleSelectChange(e)&#123;</div><div class="line">	this.setState(&#123;SelectValue:e.target.value&#125;);</div><div class="line">&#125;</div><div class="line">handleSubmit(e)&#123;</div><div class="line">    alert(&apos;Your favorite flavor is &apos;+ this.state.selectValue);</div><div class="line">    e.preventDefault();</div><div class="line">&#125;</div><div class="line"></div><div class="line">&lt;label&gt;Pick:</div><div class="line">	&lt;select value=&#123;this.state.selectValue&#125; onChange=&#123;this.handleSelectChange&#125;&gt;</div><div class="line">    	&lt;option value=&quot;grapefruit&quot;&gt;Grapefruit&lt;/option&gt;</div><div class="line">        &lt;option value=&quot;lime&quot;&gt;Lime&lt;/option&gt;</div><div class="line">        &lt;option value=&quot;coconut&quot;&gt;Coconut&lt;/option&gt;</div><div class="line">        &lt;option value=&quot;mango&quot;&gt;Mango&lt;/option&gt;</div><div class="line">    &lt;/select&gt;</div><div class="line">&lt;/label&gt;</div><div class="line">&lt;input type=&quot;submit&quot; value=&quot;Submit&quot; onClick=&#123;this.handleSubmit&#125;/&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>处理多输入——添加name属性，并根据该属性判断需要更改的部分</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">this.state = &#123;</div><div class="line">  isGoing:true,</div><div class="line">  numberOfGuest:2</div><div class="line">&#125;;</div><div class="line"></div><div class="line">handleInputChange(e)&#123;</div><div class="line">    const target = e.target;</div><div class="line">    const value = target.type === &apos;checkbox&apos;? target.checked:target.value;</div><div class="line">    const name = target.name;</div><div class="line">    this.setState(&#123;</div><div class="line">      [name]:value</div><div class="line">    &#125;)</div><div class="line">&#125;</div><div class="line"></div><div class="line">&lt;label&gt;Is going:</div><div class="line">	&lt;input name=&quot;isGoing&quot; type=&quot;checkbox&quot; checked=&#123;this.state.isGoing&#125; onChange=&#123;this.handleInputChange&#125;/&gt;</div><div class="line">&lt;/label&gt;&lt;br/&gt;</div><div class="line">&lt;label&gt;Number of guests:</div><div class="line">	&lt;input name=&quot;numberOfGuest&quot; type=&quot;number&quot; value=&#123;this.state.numberOfGuest&#125; onChange=&#123;this.handleInputChange&#125;/&gt;</div><div class="line">&lt;/label&gt;</div></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+</ul>
+<h4 id="JSX高级用法"><a href="#JSX高级用法" class="headerlink" title="JSX高级用法"></a>JSX高级用法</h4><ul>
+<li><p>传播属性：</p>
+<p>如果props作为对象传递，则可通过’…’作为扩展运算符进行传递，以下两种方式等效：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">function App1() &#123;</div><div class="line">  return &lt;Greeting firstName=&quot;Ben&quot; lastName=&quot;Hector&quot; /&gt;;</div><div class="line">&#125;</div><div class="line"></div><div class="line">function App2() &#123;</div><div class="line">  const props = &#123;firstName: &apos;Ben&apos;, lastName: &apos;Hector&apos;&#125;;</div><div class="line">  return &lt;Greeting &#123;...props&#125; /&gt;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>JSX中的children</p>
+<p>在包含开始标签和结束标签的JSX表达式中，这些标记之间的内容作为一个特殊的道具：props.children传递。 有几种不同的方法来传递孩子：</p>
+<ul>
+<li><p>字符串作为children</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;MyComponent&gt;Hello world!&lt;/MyComponent&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>jsx组件作为children</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;MyContainer&gt;</div><div class="line">  &lt;MyFirstComponent /&gt;</div><div class="line">  &lt;MySecondComponent /&gt;</div><div class="line">&lt;/MyContainer&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>javascript表达式作为children</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;MyComponent&gt;foo&lt;/MyComponent&gt;</div><div class="line"></div><div class="line">&lt;MyComponent&gt;&#123;&apos;foo&apos;&#125;&lt;/MyComponent&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>function作为children</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">// Calls the children callback numTimes to produce a repeated component</div><div class="line">function Repeat(props) &#123;</div><div class="line">  let items = [];</div><div class="line">  for (let i = 0; i &lt; props.numTimes; i++) &#123;</div><div class="line">    items.push(props.children(i));</div><div class="line">  &#125;</div><div class="line">  return &lt;div&gt;&#123;items&#125;&lt;/div&gt;;</div><div class="line">&#125;</div><div class="line"></div><div class="line">function ListOfTenThings() &#123;</div><div class="line">  return (</div><div class="line">    &lt;Repeat numTimes=&#123;10&#125;&gt;</div><div class="line">      &#123;(index) =&gt; &lt;div key=&#123;index&#125;&gt;This is item &#123;index&#125; in the list&lt;/div&gt;&#125;</div><div class="line">    &lt;/Repeat&gt;</div><div class="line">  );</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>Booleans, Null, and Undefined 被忽略，不被渲染</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&lt;div /&gt;</div><div class="line"></div><div class="line">&lt;div&gt;&lt;/div&gt;</div><div class="line"></div><div class="line">&lt;div&gt;&#123;false&#125;&lt;/div&gt;</div><div class="line"></div><div class="line">&lt;div&gt;&#123;null&#125;&lt;/div&gt;</div><div class="line"></div><div class="line">&lt;div&gt;&#123;undefined&#125;&lt;/div&gt;</div><div class="line"></div><div class="line">&lt;div&gt;&#123;true&#125;&lt;/div&gt;</div></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="类型检查"><a href="#类型检查" class="headerlink" title="类型检查"></a>类型检查</h4><blockquote>
+<p>注意：<em><code>React.PropTypes</code>不再适用于React v15.5。 请改用prop-types库。</em></p>
+</blockquote>
+<ul>
+<li><p><code>propTypes</code>属性：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">import PropTypes from &apos;prop-types&apos;;</div><div class="line"></div><div class="line">class Greeting extends React.Component &#123;</div><div class="line">  render() &#123;</div><div class="line">    return (</div><div class="line">      &lt;h1&gt;Hello, &#123;this.props.name&#125;&lt;/h1&gt;</div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">Greeting.propTypes = &#123;</div><div class="line">  name: PropTypes.string</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p><code>PropTypes</code>导出一系列验证器，可用于确保您接收的数据有效。 在这个例子中，我们使用<code>PropTypes.string</code>。 当为一个道具提供无效值时，JavaScript控制台中将显示警告。 出于性能原因，仅在<strong>开发模式</strong>下检查<code>propTypes</code>。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div></pre></td><td class="code"><pre><div class="line">import PropTypes from &apos;prop-types&apos;;</div><div class="line"></div><div class="line">MyComponent.propTypes = &#123;</div><div class="line">  // You can declare that a prop is a specific JS primitive. By default, these</div><div class="line">  // are all optional.</div><div class="line">  optionalArray: PropTypes.array,</div><div class="line">  optionalBool: PropTypes.bool,</div><div class="line">  optionalFunc: PropTypes.func,</div><div class="line">  optionalNumber: PropTypes.number,</div><div class="line">  optionalObject: PropTypes.object,</div><div class="line">  optionalString: PropTypes.string,</div><div class="line">  optionalSymbol: PropTypes.symbol,</div><div class="line"></div><div class="line">  // Anything that can be rendered: numbers, strings, elements or an array</div><div class="line">  // (or fragment) containing these types.</div><div class="line">  optionalNode: PropTypes.node,</div><div class="line"></div><div class="line">  // A React element.</div><div class="line">  optionalElement: PropTypes.element,</div><div class="line"></div><div class="line">  // You can also declare that a prop is an instance of a class. This uses</div><div class="line">  // JS&apos;s instanceof operator.</div><div class="line">  optionalMessage: PropTypes.instanceOf(Message),</div><div class="line"></div><div class="line">  // You can ensure that your prop is limited to specific values by treating</div><div class="line">  // it as an enum.</div><div class="line">  optionalEnum: PropTypes.oneOf([&apos;News&apos;, &apos;Photos&apos;]),</div><div class="line"></div><div class="line">  // An object that could be one of many types</div><div class="line">  optionalUnion: PropTypes.oneOfType([</div><div class="line">    PropTypes.string,</div><div class="line">    PropTypes.number,</div><div class="line">    PropTypes.instanceOf(Message)</div><div class="line">  ]),</div><div class="line"></div><div class="line">  // An array of a certain type</div><div class="line">  optionalArrayOf: PropTypes.arrayOf(PropTypes.number),</div><div class="line"></div><div class="line">  // An object with property values of a certain type</div><div class="line">  optionalObjectOf: PropTypes.objectOf(PropTypes.number),</div><div class="line"></div><div class="line">  // An object taking on a particular shape</div><div class="line">  optionalObjectWithShape: PropTypes.shape(&#123;</div><div class="line">    color: PropTypes.string,</div><div class="line">    fontSize: PropTypes.number</div><div class="line">  &#125;),</div><div class="line"></div><div class="line">  // You can chain any of the above with `isRequired` to make sure a warning</div><div class="line">  // is shown if the prop isn&apos;t provided.</div><div class="line">  requiredFunc: PropTypes.func.isRequired,</div><div class="line"></div><div class="line">  // A value of any data type</div><div class="line">  requiredAny: PropTypes.any.isRequired,</div><div class="line">  // You can also specify a custom validator. It should return an Error</div><div class="line">  // object if the validation fails. Don&apos;t `console.warn` or throw, as this</div><div class="line">  // won&apos;t work inside `oneOfType`.</div><div class="line">  customProp: function(props, propName, componentName) &#123;</div><div class="line">    if (!/matchme/.test(props[propName])) &#123;</div><div class="line">      return new Error(</div><div class="line">        &apos;Invalid prop `&apos; + propName + &apos;` supplied to&apos; +</div><div class="line">        &apos; `&apos; + componentName + &apos;`. Validation failed.&apos;</div><div class="line">      );</div><div class="line">    &#125;</div><div class="line">  &#125;,</div><div class="line"></div><div class="line">  // You can also supply a custom validator to `arrayOf` and `objectOf`.</div><div class="line">  // It should return an Error object if the validation fails. The validator</div><div class="line">  // will be called for each key in the array or object. The first two</div><div class="line">  // arguments of the validator are the array or object itself, and the</div><div class="line">  // current item&apos;s key.</div><div class="line">  customArrayProp: PropTypes.arrayOf(function(propValue, key, componentName, location, propFullName) &#123;</div><div class="line">    if (!/matchme/.test(propValue[key])) &#123;</div><div class="line">      return new Error(</div><div class="line">        &apos;Invalid prop `&apos; + propFullName + &apos;` supplied to&apos; +</div><div class="line">        &apos; `&apos; + componentName + &apos;`. Validation failed.&apos;</div><div class="line">      );</div><div class="line">    &#125;</div><div class="line">  &#125;)</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+</li>
+<li><p><code>defaultProps</code>属性：</p>
+<p>如果父组件未指定，则defaultProps将用于确保this.props.name将具有值。 在defaultProps解决之后，propTypes类型检查就会发生，因此类型检查也将应用于defaultProps。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">class Greeting extends React.Component &#123;</div><div class="line">  render() &#123;</div><div class="line">    return (</div><div class="line">      &lt;h1&gt;Hello, &#123;this.props.name&#125;&lt;/h1&gt;</div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">// Specifies the default values for props:</div><div class="line">Greeting.defaultProps = &#123;</div><div class="line">  name: &apos;Stranger&apos;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">// Renders &quot;Hello, Stranger&quot;:</div><div class="line">ReactDOM.render(</div><div class="line">  &lt;Greeting /&gt;,</div><div class="line">  document.getElementById(&apos;example&apos;)</div><div class="line">);r</div></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+</ul>
+<h4 id="Refs和DOM"><a href="#Refs和DOM" class="headerlink" title="Refs和DOM"></a>Refs和DOM</h4><ul>
+<li><p>使用refs的情况：</p>
+<ul>
+<li>管理focus、文本选择、媒体播放等；</li>
+<li>触发强制动画；</li>
+<li>集成第三方DOM库；</li>
+</ul>
+</li>
+<li><p>在DOM元素上添加ref属性</p>
+<ul>
+<li><p>React支持一个可以附加到任何组件的特殊属性。 ref属性采用回调函数，并且在组件被装载或卸载后立即执行回调。当在HTML元素上使用ref属性时，ref回调接收底层的DOM元素作为其参数。 例如，此代码使用引用回调来存储对DOM节点的引用：当组件挂载时，React将使用DOM元素调用ref回调，并在卸载时将其调用为null。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">export default class CustomTextInput extends Component&#123;</div><div class="line">  constructor(props)&#123;</div><div class="line">    super(props);</div><div class="line">    this.focus2 = this.focus2.bind(this);</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  focus2()&#123;</div><div class="line">    this.textInput.focus();</div><div class="line">    this.textInput.value = &apos;123&apos;;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  render()&#123;</div><div class="line">    return(</div><div class="line">      &lt;div&gt;</div><div class="line">        &lt;input type=&quot;text&quot; ref=&#123;(input)=&gt;&#123;this.textInput = input;console.log(input);&#125;&#125;/&gt;</div><div class="line">        &lt;input type=&quot;button&quot; value=&quot;Focus the text input&quot; onClick=&#123;this.focus2&#125;/&gt;</div><div class="line">      &lt;/div&gt;</div><div class="line">    )</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">//控制台输出：&lt;input type=&quot;text&quot;&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>在类组件上添加ref属性</p>
+<ul>
+<li><p>当在声明为类的自定义组件上使用ref属性时，ref回调接收组件的已挂接实例作为其参数。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">export default class AutoFocusTextInput extends React.Component &#123;</div><div class="line">  componentDidMount() &#123;</div><div class="line">    this.textInput.focus();</div><div class="line"></div><div class="line">  &#125;</div><div class="line"></div><div class="line">  render() &#123;</div><div class="line">    return (</div><div class="line">      &lt;CustomTextInput</div><div class="line">        ref=&#123;(input) =&gt; &#123; this.textInput = input;console.log(input);&#125;&#125; /&gt;</div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">//控制台输出：CustomTextInput &#123;props: Object, context: Object, refs: Object, updater: Object, focus: function…&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>在form表单中使用不受控制的组件：</p>
+<p>要编写不受控制的组件，不需要为每个状态更新编写事件处理程序，而可以使用ref从DOM获取表单值。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">class NameForm extends React.Component &#123;</div><div class="line">  constructor(props) &#123;</div><div class="line">    super(props);</div><div class="line">    this.handleSubmit = this.handleSubmit.bind(this);</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  handleSubmit(event) &#123;</div><div class="line">    alert(&apos;A name was submitted: &apos; + this.input.value);</div><div class="line">    event.preventDefault();</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  render() &#123;</div><div class="line">    return (</div><div class="line">      &lt;form onSubmit=&#123;this.handleSubmit&#125;&gt;</div><div class="line">         &lt;label&gt;Ref Name:</div><div class="line">            &lt;input type=&quot;text&quot; ref=&#123;(refInput)=&gt; this.input = refInput&#125;/&gt;</div><div class="line">          &lt;/label&gt;</div><div class="line">        &lt;input type=&quot;submit&quot; value=&quot;Submit&quot; /&gt;</div><div class="line">      &lt;/form&gt;</div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="优化性能"><a href="#优化性能" class="headerlink" title="优化性能"></a>优化性能</h4><ul>
+<li><p>使用生产者模式；</p>
+</li>
+<li><p>使用shouldComponentUpdate</p>
+<ul>
+<li>默认情况下<code>shouldComponentUpdate(nextProps,nextState)()</code>方法返回true，默认更新，可以在其中增加条件判断，使其返回false而不更新组件；</li>
+<li>通过集成React.PureComponent也可以达到SCU的效果，不过它只是浅比较，在复杂数据结构中不适用</li>
+</ul>
+</li>
+<li><p>不改变数据，拷贝出一个新对象：</p>
+<ul>
+<li><p>数组的拷贝：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">//concat方式</div><div class="line">handleClick() &#123;</div><div class="line">  this.setState(prevState =&gt; (&#123;</div><div class="line">    words: prevState.words.concat([&apos;marklar&apos;])</div><div class="line">  &#125;));</div><div class="line">&#125;</div><div class="line">//ES6方式</div><div class="line">handleClick() &#123;</div><div class="line">  this.setState(prevState =&gt; (&#123;</div><div class="line">    words: [...prevState.words, &apos;marklar&apos;],</div><div class="line">  &#125;));</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+</li>
+<li><p>对象的拷贝：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">//assign方式</div><div class="line">function updateColorMap(colormap) &#123;</div><div class="line">  return Object.assign(&#123;&#125;, colormap, &#123;right: &apos;blue&apos;&#125;);</div><div class="line">&#125;</div><div class="line">//ES6方式</div><div class="line">function updateColorMap(colormap) &#123;</div><div class="line">  return &#123;...colormap, right: &apos;blue&apos;&#125;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>使用Immutable数据结构</p>
+<p>Immutable.js通过结构共享提供不变的，持久的集合：</p>
+<ul>
+<li><p>不可变性：一旦创建，集合不能在另一个时间点改变；</p>
+</li>
+<li><p>持久性：可以从先前的集合创建新的集合，并且可以创建诸如集合的突变。 创建新集合后，原始集合仍然有效；</p>
+</li>
+<li><p>结构共享性：使用尽可能多的与原始集合相同的结构创建新集合，将复制减少到最低限度以提高性能。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> SomeRecord = Immutable.Record(&#123; <span class="attr">foo</span>: <span class="literal">null</span> &#125;);</div><div class="line"><span class="keyword">const</span> x = <span class="keyword">new</span> SomeRecord(&#123; <span class="attr">foo</span>: <span class="string">'bar'</span> &#125;);</div><div class="line"><span class="keyword">const</span> y = x.set(<span class="string">'foo'</span>, <span class="string">'baz'</span>);</div><div class="line">x === y; <span class="comment">// false</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="Diff算法"><a href="#Diff算法" class="headerlink" title="Diff算法"></a>Diff算法</h4><ul>
+<li><p>React实现了基于两个假设的启发式O（n）算法：</p>
+<ul>
+<li>不同类型的两个元素将产生不同的树；</li>
+<li>开发人员可以提示哪些子元素可能在不同的渲染与稳定的基础上是稳定的。</li>
+</ul>
+</li>
+<li><p>Diff算法——当比较两个树的时候，react最先比较两个根元素，根元素类型不同则具体行为也不同。</p>
+<ul>
+<li><p>不同类型的元素</p>
+<ol>
+<li>如果根元素的类型不同，则丢弃旧树构建新树</li>
+<li>当丢弃旧树时，旧的DOM节点被破坏。 组件实例接收componentWillUnmount（）， 当构建一个新树时，会将新的DOM节点插入到DOM中。 组件实例接收componentWillMount（），然后接收componentDidMount（）。 与旧树相关联的任何状态都将丢失。</li>
+</ol>
+</li>
+<li><p>相同类型的DOM元素</p>
+<ol>
+<li>当比较两个相同类型的React DOM元素时，React会查看两者的属性，保留相同的底层DOM节点，并且只更新已更改的属性。</li>
+<li>处理DOM节点后，React然后对子节点进行递归。</li>
+</ol>
+</li>
+<li><p>相同类型的组件元素</p>
+<ol>
+<li>当组件更新时，实例保持不变，从而在渲染之间保持状态。 React更新底层组件实例的props并匹配新元素，并调用底层实例上的componentWillReceiveProps（）和componentWillUpdate（）。</li>
+<li>接下来，调用render（）方法，并且通过diff算法对先前的结果和新结果进行递归。</li>
+</ol>
+</li>
+<li><p>递归子元素</p>
+<ol>
+<li>默认情况下，当对DOM节点的子代进行递归时，React只会同时遍历两个列表的子句，并在有差异时生成变异。</li>
+<li>例如，当在孩子的最后添加一个元素时，在这两个树之间进行转换效果很好；</li>
+<li>而如果在开始处插入元素，则性能将会降低。</li>
+</ol>
+</li>
+<li><p>Keys</p>
+<ol>
+<li><p>为了上面3中的问题，React支持一个key属性，用来标识所属元素；</p>
+</li>
+<li><p>key只是在元素的兄弟元素间是唯一的，而非在全局中唯一;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;li key=&#123;item.id&#125;&gt;&#123;item.name&#125;&lt;/li&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>key应该是稳定的，可预测的和唯一的。 不稳定的key（如Math.random（）生成的））将导致许多组件实例和DOM节点被不必要地重新创建，这会导致子组件的性能下降和state的丢失。</p>
+<p>​</p>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="Context"><a href="#Context" class="headerlink" title="Context"></a>Context</h4><blockquote>
+<p>注意：<em>从React v15.5起，<code>React.PropTypes</code>帮助器已被弃用，我们建议使用<code>prop-types</code>库来定义<code>contextTypes</code></em>。</p>
+<p>提醒：一般 不推荐使用上下文，目前它还在试验阶段，有更新版本的风险，会使得程序不稳定。</p>
+</blockquote>
+<ul>
+<li><p>当组件层级嵌套过多，产生数据流传递层数增多的情况，此时可以选择使用Redux或MobX框架进行状态管理，而Context也能达到类似的效果，实例如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">class Button extends React.Component &#123;</div><div class="line">  render() &#123;</div><div class="line">    return (</div><div class="line">      &lt;button style=&#123;&#123;background: this.props.color&#125;&#125;&gt;</div><div class="line">        &#123;this.props.children&#125;</div><div class="line">      &lt;/button&gt;</div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">class Message extends React.Component &#123;</div><div class="line">  render() &#123;</div><div class="line">    return (</div><div class="line">      &lt;div&gt;</div><div class="line">        &#123;this.props.text&#125; &lt;Button color=&#123;this.props.color&#125;&gt;Delete&lt;/Button&gt;</div><div class="line">      &lt;/div&gt;</div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">class MessageList extends React.Component &#123;</div><div class="line">  render() &#123;</div><div class="line">    const color = &quot;purple&quot;;</div><div class="line">    const children = this.props.messages.map((message) =&gt;</div><div class="line">      &lt;Message text=&#123;message.text&#125; color=&#123;color&#125; /&gt;</div><div class="line">    );</div><div class="line">    return &lt;div&gt;&#123;children&#125;&lt;/div&gt;;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>使用context的方式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line">const PropTypes = require(&apos;prop-types&apos;);</div><div class="line"></div><div class="line">class Button extends React.Component &#123;</div><div class="line">  render() &#123;</div><div class="line">    return (</div><div class="line">      &lt;button style=&#123;&#123;background: this.context.color&#125;&#125;&gt;</div><div class="line">        &#123;this.props.children&#125;</div><div class="line">      &lt;/button&gt;</div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">Button.contextTypes = &#123;</div><div class="line">  color: PropTypes.string</div><div class="line">&#125;;</div><div class="line"></div><div class="line">class Message extends React.Component &#123;</div><div class="line">  render() &#123;</div><div class="line">    return (</div><div class="line">      &lt;div&gt;</div><div class="line">        &#123;this.props.text&#125; &lt;Button&gt;Delete&lt;/Button&gt;</div><div class="line">      &lt;/div&gt;</div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">class MessageList extends React.Component &#123;</div><div class="line">  getChildContext() &#123;</div><div class="line">    return &#123;color: &quot;purple&quot;&#125;;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  render() &#123;</div><div class="line">    const children = this.props.messages.map((message) =&gt;</div><div class="line">      &lt;Message text=&#123;message.text&#125; /&gt;</div><div class="line">    );</div><div class="line">    return &lt;div&gt;&#123;children&#125;&lt;/div&gt;;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">MessageList.childContextTypes = &#123;</div><div class="line">  color: PropTypes.string</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>上面通过将<code>childContextTypes</code>和<code>getChildContext</code>添加到MessageList（上下文提供程序），React将自动传递信息，子树中的任何组件（在本例中为Button）都可以通过定义contextTypes来访问它。</p>
+</li>
+<li><p>在生命周期方法中引用上下文：</p>
+<p>如果<code>contextTypes</code>在组件中定义，则以下生命周期方法将接收一个附加参数，即上下文对象：</p>
+<ul>
+<li><code>constructor(props, context)</code></li>
+<li><code>componentWillReceiveProps(nextProps, nextContext)</code></li>
+<li><code>shouldComponentUpdate(nextProps, nextState, nextContext)</code></li>
+<li><code>componentWillUpdate(nextProps, nextState, nextContext)</code></li>
+<li><code>componentDidUpdate(prevProps, prevState, prevContext)</code></li>
+</ul>
+</li>
+<li><p>在无状态的功能组件中引用上下文：</p>
+<p>如果<code>contextTypes</code>被定义为该函数的属性，则无状态功能组件也能够引用上下文。 以下代码显示了一个作为无状态功能组件编写的Button组件。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">const PropTypes = require(&apos;prop-types&apos;);</div><div class="line"></div><div class="line">const Button = (&#123;children&#125;, context) =&gt;</div><div class="line">  &lt;button style=&#123;&#123;background: context.color&#125;&#125;&gt;</div><div class="line">    &#123;children&#125;</div><div class="line">  &lt;/button&gt;;</div><div class="line"></div><div class="line">Button.contextTypes = &#123;color: PropTypes.string&#125;;</div></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+</ul>
+<h4 id="高阶组件（HOC）"><a href="#高阶组件（HOC）" class="headerlink" title="高阶组件（HOC）"></a>高阶组件（HOC）</h4><ul>
+<li><p>高阶组件是React中用于重用组件逻辑的高级技术。实际上，它是一个获取组件并包装它们然后返回新组件的函数。可以替代以前Mixin中使用订阅模式的做法。</p>
+</li>
+<li><p>使用HOC来解决交叉问题：</p>
+<blockquote>
+<p>补充：不使用mixin的原因</p>
+<ol>
+<li>Mixins引入了隐式依赖；</li>
+<li>Mixins会造成命名冲突；</li>
+<li>Mixins导致复杂度增大；</li>
+</ol>
+</blockquote>
+</li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/前端框架/" rel="tag">#前端框架</a>
+          
+            <a href="/tags/React/" rel="tag">#React</a>
+          
+            <a href="/tags/知识点/" rel="tag">#知识点</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/11/17/SAP2016秋季实习VT项目在线笔试（回顾）/" rel="next" title="SAP2016秋季实习VT项目在线笔试（回顾）">
+                <i class="fa fa-chevron-left"></i> SAP2016秋季实习VT项目在线笔试（回顾）
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/08/14/D3.js学习笔记/" rel="prev" title="D3.js学习笔记">
+                D3.js学习笔记 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Zhanmin" />
+          <p class="site-author-name" itemprop="name">Zhanmin</p>
+          <p class="site-description motion-element" itemprop="description">一码年华，瑰宝永留存</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">5</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#State"><span class="nav-number">1.</span> <span class="nav-text">State</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#处理事件"><span class="nav-number">2.</span> <span class="nav-text">处理事件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#表单"><span class="nav-number">3.</span> <span class="nav-text">表单</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JSX高级用法"><span class="nav-number">4.</span> <span class="nav-text">JSX高级用法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#类型检查"><span class="nav-number">5.</span> <span class="nav-text">类型检查</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Refs和DOM"><span class="nav-number">6.</span> <span class="nav-text">Refs和DOM</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#优化性能"><span class="nav-number">7.</span> <span class="nav-text">优化性能</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Diff算法"><span class="nav-number">8.</span> <span class="nav-text">Diff算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Context"><span class="nav-number">9.</span> <span class="nav-text">Context</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#高阶组件（HOC）"><span class="nav-number">10.</span> <span class="nav-text">高阶组件（HOC）</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zhanmin</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.2"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = false;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title >= 0 || index_content >= 0 ){
+                                isMatch = true;
+								if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            } 
+							
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>

@@ -1,0 +1,800 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="前端," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Zhanmin's blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.2" />
+
+
+
+
+
+
+<meta name="description" content="本文的内容是博主在封装一个angular的表格分页工具时的一些心得和体验，记录下来，方便之后的回顾。所涉及到的angular的技术：指令的封装，angular的过滤">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AngularJS中实现分页组件">
+<meta property="og:url" content="http://yoursite.com/2016/10/25/AngularJS中实现分页组件/index.html">
+<meta property="og:site_name" content="Zhanmin's blog">
+<meta property="og:description" content="本文的内容是博主在封装一个angular的表格分页工具时的一些心得和体验，记录下来，方便之后的回顾。所涉及到的angular的技术：指令的封装，angular的过滤">
+<meta property="og:image" content="http://yoursite.com/upload/pagination/result.png">
+<meta property="og:updated_time" content="2016-11-07T09:16:18.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AngularJS中实现分页组件">
+<meta name="twitter:description" content="本文的内容是博主在封装一个angular的表格分页工具时的一些心得和体验，记录下来，方便之后的回顾。所涉及到的angular的技术：指令的封装，angular的过滤">
+<meta name="twitter:image" content="http://yoursite.com/upload/pagination/result.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/10/25/AngularJS中实现分页组件/"/>
+
+
+  <title> AngularJS中实现分页组件 | Zhanmin's blog </title>
+</head>
+
+<body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Zhanmin's blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">拾金之路</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                AngularJS中实现分页组件
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-10-25T16:38:29+08:00" content="2016-10-25">
+              2016-10-25
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/blog/" itemprop="url" rel="index">
+                    <span itemprop="name">blog</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>本文的内容是博主在封装一个angular的表格分页工具时的一些心得和体验，记录下来，方便之后的回顾。<br>所涉及到的angular的技术：指令的封装，angular的过滤</p>
+<a id="more"></a>
+<h3 id="需求说明"><a href="#需求说明" class="headerlink" title="需求说明"></a>需求说明</h3><blockquote>
+<p>由于在一般管理系统中，数据量庞大，用表格来呈现数据时没有分页功能将会影响用户体验，所以开发一个既美观又实用的分页组件十分必要。为了能够更加有效地调用该组件，需要用到angular的封装组件的特性，从而减少代码冗余，提高效率。</p>
+</blockquote>
+<h3 id="实现流程"><a href="#实现流程" class="headerlink" title="实现流程"></a>实现流程</h3><blockquote>
+<p>首先，参考<a href="https://angular-ui.github.io/bootstrap/#/pagination" target="_blank" rel="external">UI Bootstrap-AngularUI</a>中自带的Pagination指令，为了方便用户的使用习惯，博主选择了带箭头导航以及有省略号的分页形式。如下图：</p>
+</blockquote>
+<hr>
+<p><img src="/upload/pagination/result.png" alt="效果图"></p>
+<p>  代码如下：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">paginationTpls.html</div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">uib-pagination</span> <span class="attr">total-items</span>=<span class="string">"totalItems"</span> <span class="attr">ng-model</span>=<span class="string">"currentPage"</span> <span class="attr">max-size</span>=<span class="string">"maxSize"</span></span></div><div class="line">     <span class="attr">class</span>=<span class="string">"pagination-sm form-group"</span>  <span class="attr">boundary-links</span>=<span class="string">"true"</span> <span class="attr">num-pages</span>=<span class="string">"numPages"</span> </div><div class="line">     <span class="attr">force-ellipses</span>=<span class="string">"true"</span> <span class="attr">boundary-link-numbers</span>=<span class="string">"true"</span> <span class="attr">rotate</span>=<span class="string">"true"</span></div><div class="line">     <span class="attr">items-per-page</span>=<span class="string">"itemsPerPage"</span> <span class="attr">previous-text</span>=<span class="string">"&amp;lsaquo;"</span> <span class="attr">next-text</span>=<span class="string">"&amp;rsaquo;"</span> <span class="attr">first-text</span>=<span class="string">"&amp;laquo;"</span> <span class="attr">last-text</span>=<span class="string">"&amp;raquo;"</span>&gt;</div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span> </div><div class="line"><span class="tag">&lt;<span class="name">label</span> <span class="attr">style</span>=<span class="string">"font-weight: normal;font-size: 12px;"</span>&gt;</span></div><div class="line">        页码: &#123;&#123;currentPage&#125;&#125; / &#123;&#123;numPages&#125;&#125;</div><div class="line"><span class="tag">&lt;/<span class="name">label</span>&gt;</span></div><div class="line"> <span class="tag">&lt;<span class="name">select</span> <span class="attr">class</span>=<span class="string">"form-control"</span> <span class="attr">ng-model</span>=<span class="string">"view"</span> <span class="attr">ng-change</span>=<span class="string">"setItemsPerPage(view)"</span>&gt;</span></div><div class="line">       <span class="tag">&lt;<span class="name">option</span> <span class="attr">ng-repeat</span>=<span class="string">"v in [5,10,15,20]"</span> <span class="attr">value</span>=<span class="string">"&#123;&#123;v&#125;&#125;"</span> <span class="attr">ng-bind</span>=<span class="string">"v"</span> <span class="attr">ng-selected</span>=<span class="string">"v==10"</span>&gt;</span><span class="tag">&lt;/<span class="name">option</span>&gt;</span></div><div class="line"> <span class="tag">&lt;/<span class="name">select</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>其中有几个重要的属性需要理解一下：</p>
+<ul>
+<li>total-items:所有页面中的项目总数</li>
+<li>max-size:分页大小的限制数</li>
+<li>boundary-links:(默认false)是否显示第一个/最后一个按钮</li>
+<li>num-pages:分配要显示的总页数的可选表达式</li>
+<li>force-ellipses:(默认false) 当总页数大于最大显示页数（max-size）显示省略号按钮</li>
+<li>boundary-link-numbers:(默认false)是否总是显示第一个和最后一个页码。如果最大页码大于设置的最小显示页数,则会在最大或最小页面和中间页面之间增加一个按钮，内容为省略号，如果最大页码小于设置的最小显示页数，则不显示省略号按钮</li>
+<li>rotate:(默认true)是否将当前激活页显示在中间。</li>
+<li>items-per-page:每页的最大项目数</li>
+<li>previous-text:上一个按钮上的文本</li>
+<li>next-text:下一个按钮上的文本</li>
+<li>first-text:第一个按钮上的文本</li>
+<li>last-text:最后一个按钮上的文本</li>
+</ul>
+</blockquote>
+<hr>
+<p>为了能够在项目中多次复用该组件，所以需要将其封装在一个组件当中，<br>js关键代码如下：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> mainModule = angular.module(<span class="string">'MainModule'</span>);</div><div class="line">mainModule.directive(<span class="string">'myPagination'</span>,<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span>&#123;</div><div class="line">        <span class="attr">restrict</span>:<span class="string">'E'</span>,</div><div class="line">        <span class="attr">scope</span>:&#123;</div><div class="line">            <span class="attr">totalItems</span>:<span class="string">'@'</span>,</div><div class="line">            <span class="attr">maxSize</span>:<span class="string">'@maxSize'</span>,</div><div class="line">            <span class="attr">currentPage</span>:<span class="string">'=curPage'</span>,</div><div class="line">            <span class="attr">view</span>:<span class="string">'=viewBy'</span>,</div><div class="line">            <span class="attr">itemsPerPage</span>:<span class="string">'= itemsPer'</span>,</div><div class="line">            <span class="attr">setItemsPerPage</span>:<span class="string">'&amp;'</span></div><div class="line">        &#125;,</div><div class="line">        <span class="attr">templateUrl</span>:<span class="string">'partial/paginationTpls.html'</span>,</div><div class="line">        <span class="attr">replace</span>:<span class="literal">true</span>,</div><div class="line">        <span class="attr">link</span>:<span class="function"><span class="keyword">function</span> (<span class="params">scope</span>) </span>&#123;</div><div class="line">            scope.maxSize=<span class="number">5</span>;<span class="comment">//页码导航最多显示五页</span></div><div class="line">            scope.view=<span class="string">"10"</span>;<span class="comment">//一页显示最多项目数</span></div><div class="line">            scope.currentPage=<span class="number">1</span>;<span class="comment">//当前页</span></div><div class="line">            scope.itemsPerPage=scope.view;</div><div class="line">            scope.setItemsPerPage=<span class="function"><span class="keyword">function</span>(<span class="params">num</span>)</span>&#123;</div><div class="line">                scope.itemsPerPage = num;</div><div class="line">                scope.currentPage = <span class="number">1</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>这里我们封装了一个指令，相关作用及介绍如下：</p>
+<ul>
+<li>myPagination:我们最终在html页面上调用的指令（html页面上标签使用中划线方式使用my-pagination，指令里需要使用驼峰标识）</li>
+<li>restrict:指令标识，E标识该指令为一个dom元素element,其他的还有A(attribute,属性),C(class，类),M(注释),后两者不常用。这些标识也可以结合使用，如’AE’,’AECM’等;</li>
+<li>scope:定义该指令作用域，我们使用的是{}，表示新建一个作用域，里面引用了父作用域的六个变量，@表示子作用域变量引用了父作用域的相关变量（子作用域变量变化不会影响父作用域变量）；=表示子作用域对象绑定了父作用域的相关对象（同时变化）；&amp;表示子作用域引用父作用域的函数；</li>
+<li>templateUrl:模版url地址</li>
+<li>replace:将模版的内容追加到元素中，如果设置为 true，那么模版的内容将会替换元素的内容。</li>
+<li>link:以编程的方式操作DOM，包括添加监听器、进行双向数据绑定等操作,负责在模型和数据之间进行数据关联，与compile区别是compile是以编程的方式修改DOM模板的副本。</li>
+</ul>
+</blockquote>
+<p>html页面引用代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;my-pagination max-size=&quot;maxSize&quot; cur-page=&quot;currentPage&quot; view-by=&quot;viewby&quot; </div><div class="line">               items-per=&quot;itemsPerPage&quot; total-items=&quot;&#123;&#123;courseInfo.length&#125;&#125;&quot;</div><div class="line">               set-items-per-page=&quot;setItemsPerPage(viewby)&quot;&gt;</div><div class="line">&lt;/my-pagination&gt;</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/前端/" rel="tag">#前端</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/10/15/博客开发文档/" rel="next" title="博客开发文档">
+                <i class="fa fa-chevron-left"></i> 博客开发文档
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/11/17/SAP2016秋季实习VT项目在线笔试（回顾）/" rel="prev" title="SAP2016秋季实习VT项目在线笔试（回顾）">
+                SAP2016秋季实习VT项目在线笔试（回顾） <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Zhanmin" />
+          <p class="site-author-name" itemprop="name">Zhanmin</p>
+          <p class="site-description motion-element" itemprop="description">一码年华，瑰宝永留存</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">5</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#需求说明"><span class="nav-number">1.</span> <span class="nav-text">需求说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现流程"><span class="nav-number">2.</span> <span class="nav-text">实现流程</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zhanmin</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.2"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = false;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title >= 0 || index_content >= 0 ){
+                                isMatch = true;
+								if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            } 
+							
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>

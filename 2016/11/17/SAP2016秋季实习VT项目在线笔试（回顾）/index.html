@@ -1,0 +1,761 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Zhanmin's blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.2" />
+
+
+
+
+
+
+<meta name="description" content="昨天，博主刚参加完SAP的2016秋季VT项目的在线笔试，趁着记忆尚存，决定在此分享一波在线考试中遇到的问题。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SAP2016秋季实习VT项目在线笔试（回顾）">
+<meta property="og:url" content="http://yoursite.com/2016/11/17/SAP2016秋季实习VT项目在线笔试（回顾）/index.html">
+<meta property="og:site_name" content="Zhanmin's blog">
+<meta property="og:description" content="昨天，博主刚参加完SAP的2016秋季VT项目的在线笔试，趁着记忆尚存，决定在此分享一波在线考试中遇到的问题。">
+<meta property="og:updated_time" content="2016-11-23T03:41:17.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SAP2016秋季实习VT项目在线笔试（回顾）">
+<meta name="twitter:description" content="昨天，博主刚参加完SAP的2016秋季VT项目的在线笔试，趁着记忆尚存，决定在此分享一波在线考试中遇到的问题。">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/11/17/SAP2016秋季实习VT项目在线笔试（回顾）/"/>
+
+
+  <title> SAP2016秋季实习VT项目在线笔试（回顾） | Zhanmin's blog </title>
+</head>
+
+<body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Zhanmin's blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">拾金之路</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                SAP2016秋季实习VT项目在线笔试（回顾）
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-17T23:34:49+08:00" content="2016-11-17">
+              2016-11-17
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>昨天，博主刚参加完SAP的2016秋季VT项目的在线笔试，趁着记忆尚存，决定在此分享一波在线考试中遇到的问题。</p>
+<a id="more"></a>
+<h3 id="前情回顾"><a href="#前情回顾" class="headerlink" title="前情回顾"></a>前情回顾</h3><p> 十月底，SAP来到我校进行宣讲，这是算比较早的来招实习生的企业了，因为往届一般企业都是来年三四月份才来的，因为我们学院硕士一般都是两年制，研一下半学期就要参加实习了，所以，博主对来校宣讲的各个实习单位都是比较关注的。参加完SAP的宣讲，对该企业也有了大致的了解，所以作为第一个投递简历的公司，还是很认真对待的。<br> 11月14日中午，博主刚考完试准备出去办点事情便接到了来自SAP的电话面试，过程持续大概十多分钟，主要是问你对SAP的了解，对VT项目的了解，自己擅长的技术以及个人未来的职业规划，还有就是英文的自我介绍（毕竟是外企，对这方面还是有需要考察）。下午，博主收到笔试邀请并确认。</p>
+<h3 id="笔试流程"><a href="#笔试流程" class="headerlink" title="笔试流程"></a>笔试流程</h3><p> 言归正传，说到笔试，此次SAP使用了赛码网进行在线考试，要求有点多，无外乎浏览器版本要求，全程开启摄像头，以及一些防止作弊事项。博主提前一小时登陆系统，结果不知道是电脑问题还是浏览器问题，摄像头一直无法被Chrome浏览器调用，所有不得不临时借别人的电脑进行考试。<br> 虽然有些坎坷，但是笔试还是有惊无险地开始了。博主考的是技术综合，一共15道选择（单选和多选）和一道编程大题。前面15道题目涵盖了数据结构、网络通信、编译原理、离散数学、前端知识等，总之感觉就像把本科所学的各门功课都遍历了一遍，虽然博主一心想投前端岗，但是毕竟这个基础理论知识的门槛还是得过的。此次测试一共75分钟，选择题大概用了35分钟，提交后就不能修改。然后预留了40分钟的时间来做编程大题，虽然题目就一道，而且预留时间也算比较充裕，但由于前面的题目已经让人感觉头晕眼花了，因此大题思路一时半会也无法理清，所以考完重新回来看这道编程题，也就更加清晰明白了。</p>
+<h3 id="编程题目概述"><a href="#编程题目概述" class="headerlink" title="编程题目概述"></a>编程题目概述</h3><p> 这是一道计算城市美丽值的题目，ci表示地i个城市的美丽指数，小美每经过一个城市就会获得美感的体验。从一个城市a到城市b就会感受到ca*cb的美感值。给出小美想去的城市，并编号1-n以及它们的美丽指数，求出所有道路的美感度之和。<br>—（至此题目难度还是不大的，后面有个中心城市的概念就提高了题目的难度）—</p>
+<ul>
+<li>要求：</li>
+<li>每个城市都严格与相邻的城市有且只有一条道路，且顺序相邻；</li>
+<li>所有的中心城市和所有其他城市都有道路相连；</li>
+<li>任意两个城市之间最多一条道路。</li>
+</ul>
+<h3 id="输入、输出及样例"><a href="#输入、输出及样例" class="headerlink" title="输入、输出及样例"></a>输入、输出及样例</h3><p>1.输入：</p>
+<blockquote>
+<p>第一行包括两个整数n和k分别表示n个城市和k个中心城市（3&lt;=n&lt;=100000,1&lt;=k&lt;=n）<br>第二行有n个整数，表示从第1个城市到第n个城市的美丽值ci（1&lt;=ci&lt;=10000）<br>第三行有k个整数，表示k个中心城市的标号（1&lt;=k&lt;=n）</p>
+</blockquote>
+<p>2.输出：</p>
+<blockquote>
+<p>输出所有道路的美感度之和</p>
+</blockquote>
+<p>3.样例输入</p>
+<blockquote>
+<p>4 1<br>2 3 1 2<br>3</p>
+</blockquote>
+<p>4.样例输出</p>
+<blockquote>
+<p>17</p>
+</blockquote>
+<h3 id="程序代码（一）"><a href="#程序代码（一）" class="headerlink" title="程序代码（一）"></a>程序代码（一）</h3><p>此处，博主给出一种最容易想到的方法来解决这个问题，关键点在于要分类讨论，而且要分析全面：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> java.util.Arrays;</div><div class="line"><span class="keyword">import</span> java.util.Scanner;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</div><div class="line">		Scanner input=<span class="keyword">new</span> Scanner(System.in);</div><div class="line">		<span class="keyword">int</span> n=input.nextInt();<span class="comment">//城市个数</span></div><div class="line">		<span class="keyword">int</span> k=input.nextInt();<span class="comment">//中心城市</span></div><div class="line">		<span class="keyword">int</span>[] beauty=<span class="keyword">new</span> <span class="keyword">int</span>[n];</div><div class="line">		<span class="keyword">int</span>[] keyCity=<span class="keyword">new</span> <span class="keyword">int</span>[k];</div><div class="line">		<span class="comment">//输入城市美丽值</span></div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)</div><div class="line">		&#123;</div><div class="line">			beauty[i]=input.nextInt();</div><div class="line">		&#125;</div><div class="line">		<span class="comment">//输入中心城市编号j，减1与数组下标对应</span></div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;k;j++)</div><div class="line">		&#123;</div><div class="line">			keyCity[j]=input.nextInt()-<span class="number">1</span>;</div><div class="line">		&#125;</div><div class="line">		System.out.println(Main.calculateValue(beauty,keyCity));</div><div class="line">	&#125;</div><div class="line">	<span class="comment">/*</span></div><div class="line">	 * 计算美丽值</div><div class="line">	 * @param values 各个城市美丽值集合</div><div class="line">	 * @param keys 中心城市列表</div><div class="line">	 * @return 美丽值</div><div class="line">	 */</div><div class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">calculateValue</span><span class="params">(<span class="keyword">int</span>[] values,<span class="keyword">int</span>[] keys)</span></span>&#123;</div><div class="line">		<span class="keyword">int</span> output=<span class="number">0</span>;</div><div class="line">		<span class="keyword">int</span> length=values.length;<span class="comment">//所有城市个数</span></div><div class="line">		<span class="keyword">int</span> keyCount=keys.length;<span class="comment">//中心城市个数</span></div><div class="line">		<span class="comment">//1.加上 无中心城市，相互连接计算美丽值，包含首尾相连</span></div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;length;i++)&#123;</div><div class="line">			<span class="keyword">if</span>(i==length-<span class="number">1</span>)&#123;</div><div class="line">				output+=values[i]*values[<span class="number">0</span>];</div><div class="line">			&#125;<span class="keyword">else</span> </div><div class="line">			&#123;</div><div class="line">				output+=values[i]*values[i+<span class="number">1</span>];</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		<span class="comment">//2. 加上 中心城市与其他所有城市相连</span></div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> index:keys)&#123;</div><div class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> value:values)&#123;</div><div class="line">				output+=value*values[index];</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		<span class="comment">//3. 减去 自身重复计算</span></div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> index:keys)&#123;</div><div class="line">			output-=values[index]*values[index];</div><div class="line">		&#125;</div><div class="line">		<span class="comment">//4.减去 中心城市之间的距离</span></div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;keyCount;i++)&#123;</div><div class="line">			<span class="keyword">int</span> indexI=keys[i];</div><div class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> j=i+<span class="number">1</span>;j&lt;keyCount;j++)&#123;</div><div class="line">				<span class="keyword">int</span> indexJ=keys[j];</div><div class="line">				output-=values[indexI]*values[indexJ];</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		<span class="comment">//5. 减去中心城市与相邻城市距离</span></div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> index:keys)&#123;</div><div class="line">			<span class="keyword">int</span> left=(index+length-<span class="number">1</span>)%length;</div><div class="line">			<span class="keyword">int</span> right=(index+length+<span class="number">1</span>)%length;</div><div class="line">			output-=(values[index]*values[left]+values[index]*values[right]);</div><div class="line">		&#125;</div><div class="line">		<span class="comment">//6. 判断中心城市是否有相邻，如果有，则加上中间的距离</span></div><div class="line">		Arrays.sort(keys);</div><div class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;keyCount-<span class="number">1</span>;i++)&#123;</div><div class="line">			<span class="keyword">if</span>(keys[i+<span class="number">1</span>]-keys[i]==<span class="number">1</span>)&#123;</div><div class="line">				output+=values[keys[i]]*values[keys[i+<span class="number">1</span>]];</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">return</span> output;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="程序代码（二）"><a href="#程序代码（二）" class="headerlink" title="程序代码（二）"></a>程序代码（二）</h3><p>除了上面的解决方案，在此，博主又提供了一个更为高效的方法来解决，即使用Hash值的方法来计算：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> java.util.*;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        Scanner scanner = <span class="keyword">new</span> Scanner(System.in);</div><div class="line">        <span class="keyword">int</span> n = scanner.nextInt(); <span class="comment">// 城市个数</span></div><div class="line">        <span class="keyword">int</span> k = scanner.nextInt(); <span class="comment">// 中心城市</span></div><div class="line"></div><div class="line">        <span class="keyword">int</span>[] values = <span class="keyword">new</span> <span class="keyword">int</span>[n];</div><div class="line">        <span class="keyword">int</span>[] keyCity = <span class="keyword">new</span> <span class="keyword">int</span>[k];</div><div class="line"></div><div class="line">        <span class="comment">// 输入城市美丽值</span></div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</div><div class="line">            values[i] = scanner.nextInt();</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="comment">// 输入中心城市编号j，减1与数组下标对应</span></div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; k; j++) &#123;</div><div class="line">            keyCity[j] = scanner.nextInt() - <span class="number">1</span>;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        System.out.println(Test2.calculateValue(values, keyCity));</div><div class="line"></div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">calculateValue</span><span class="params">(<span class="keyword">int</span>[] values, <span class="keyword">int</span>[] keys)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> output = <span class="number">0</span>;</div><div class="line">        <span class="keyword">int</span> valueCount = values.length;</div><div class="line"></div><div class="line">        Set&lt;Margin&gt; marginSet = <span class="keyword">new</span> HashSet&lt;&gt;();</div><div class="line">        Margin margin;</div><div class="line"></div><div class="line">        <span class="comment">// 获取所有边</span></div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; valueCount; i++) &#123;</div><div class="line">            <span class="comment">// 所有城市相互连接，首尾相连</span></div><div class="line">            <span class="keyword">if</span> (i == valueCount - <span class="number">1</span>) &#123;</div><div class="line">                margin = <span class="keyword">new</span> Margin(i, <span class="number">0</span>);</div><div class="line">                margin.setValue(values[i] * values[<span class="number">0</span>]);</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                margin = <span class="keyword">new</span> Margin(i, i+<span class="number">1</span>);</div><div class="line">                margin.setValue(values[i] * values[i+<span class="number">1</span>]);</div><div class="line">            &#125;</div><div class="line">            marginSet.add(margin);</div><div class="line"></div><div class="line">            <span class="comment">// 中心城市与其他连接</span></div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> index : keys) &#123;</div><div class="line">                <span class="keyword">int</span> left = (index + valueCount - <span class="number">1</span>) % valueCount;</div><div class="line">                <span class="keyword">int</span> right = (index + valueCount + <span class="number">1</span>) % valueCount;</div><div class="line">                <span class="keyword">if</span> (i != left &amp;&amp; i != right &amp;&amp; i != index) &#123;</div><div class="line">                    margin = <span class="keyword">new</span> Margin(i, index);</div><div class="line">                    margin.setValue(values[i]*values[index]);</div><div class="line">                &#125;</div><div class="line">                marginSet.add(margin);</div><div class="line">            &#125;</div><div class="line"></div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="comment">// 计算边值</span></div><div class="line">        <span class="keyword">for</span> (Object aMarginSet : marginSet) &#123;</div><div class="line">            margin = (Margin) aMarginSet;</div><div class="line">            output += margin.getValue();</div><div class="line">        &#125;</div><div class="line"></div><div class="line"></div><div class="line">        <span class="keyword">return</span> output;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// 定义数据类型边</span></div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Margin</span> </span>&#123;</div><div class="line">        <span class="keyword">private</span> <span class="keyword">int</span> start;  <span class="comment">// 边的起点</span></div><div class="line">        <span class="keyword">private</span> <span class="keyword">int</span> end;    <span class="comment">// 边的终点</span></div><div class="line">        <span class="keyword">private</span> <span class="keyword">int</span> value;  <span class="comment">// 边的权重</span></div><div class="line"></div><div class="line">        <span class="comment">/**</span></div><div class="line">         * 带参数构造方法,为方便计算hash值，start永远为最小值，end为最大值</div><div class="line">         * <span class="doctag">@param</span> start 开始点，保证值为最小</div><div class="line">         * <span class="doctag">@param</span> end 结束点，保证值为最大</div><div class="line">         */</div><div class="line">        Margin(<span class="keyword">int</span> start, <span class="keyword">int</span> end) &#123;</div><div class="line">            <span class="keyword">int</span> min = (start&gt;end?end:start);</div><div class="line">            <span class="keyword">int</span> max = (start&gt;end?start:end);</div><div class="line">            <span class="keyword">this</span>.start = min;</div><div class="line">            <span class="keyword">this</span>.end = max;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object o)</span> </span>&#123;</div><div class="line">            Margin margin = (Margin) o;</div><div class="line">            <span class="keyword">return</span> (start == margin.start &amp;&amp; end == margin.end) || (start == margin.end &amp;&amp; end == margin.start);</div><div class="line"></div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">hashCode</span><span class="params">()</span> </span>&#123;</div><div class="line">            <span class="keyword">int</span> result = start;</div><div class="line">            result = <span class="number">31</span> * result + end;</div><div class="line"><span class="comment">//            System.out.println("hashCode:"+result+";start:"+start+";end"+end);</span></div><div class="line">            <span class="keyword">return</span> result;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">int</span> <span class="title">getValue</span><span class="params">()</span> </span>&#123;</div><div class="line">            <span class="keyword">return</span> value;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">void</span> <span class="title">setValue</span><span class="params">(<span class="keyword">int</span> value)</span> </span>&#123;</div><div class="line">            <span class="keyword">this</span>.value = value;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/10/25/AngularJS中实现分页组件/" rel="next" title="AngularJS中实现分页组件">
+                <i class="fa fa-chevron-left"></i> AngularJS中实现分页组件
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/05/20/React学习笔记/" rel="prev" title="React学习笔记">
+                React学习笔记 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Zhanmin" />
+          <p class="site-author-name" itemprop="name">Zhanmin</p>
+          <p class="site-description motion-element" itemprop="description">一码年华，瑰宝永留存</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">5</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前情回顾"><span class="nav-number">1.</span> <span class="nav-text">前情回顾</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#笔试流程"><span class="nav-number">2.</span> <span class="nav-text">笔试流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编程题目概述"><span class="nav-number">3.</span> <span class="nav-text">编程题目概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输入、输出及样例"><span class="nav-number">4.</span> <span class="nav-text">输入、输出及样例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#程序代码（一）"><span class="nav-number">5.</span> <span class="nav-text">程序代码（一）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#程序代码（二）"><span class="nav-number">6.</span> <span class="nav-text">程序代码（二）</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zhanmin</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.2"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = false;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title >= 0 || index_content >= 0 ){
+                                isMatch = true;
+								if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            } 
+							
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>
